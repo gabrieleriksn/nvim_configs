@@ -9,6 +9,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'honza/vim-snippets'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 call plug#end()
 
 
@@ -36,35 +37,40 @@ set nowritebackup
 set splitright
 set splitbelow
 set autoread
-set mouse=a
+set title
 filetype on
 filetype plugin on
 filetype indent on
 
 
 
-"" Themes ""
+"" Themes """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
+"" Sonokai 
 let g:sonokai_style = 'andromeda'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 0
 let g:sonokai_diagnostic_line_highlight = 1
 let g:sonokai_current_word = 'bold'
-colorscheme sonokai
-
-if (has("nvim")) "Transparent background. Only for nvim
-    highlight Normal guibg=NONE ctermbg=NONE
-    highlight EndOfBuffer guibg=NONE ctermbg=NONE
-endif
-
 let g:airline_theme = 'sonokai'
 
+"" Purify
+let g:purify_bold = 0        " default: 1
+let g:purify_italic = 0      " default: 1
+let g:purify_underline = 0   " default: 1
+let g:purify_undercurl = 0   " default: 1
+let g:purify_inverse = 0     " default: 1
+let g:airline_theme='purify'
+let g:lightline = {
+      \ 'colorscheme': 'purify',
+      \ }
 
+colorscheme sonokai
 
 "" Remaps ""
 "" remaps aqui
